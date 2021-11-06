@@ -1,0 +1,16 @@
+.gradle/*
+gradle/*
+local.properties
+.idea/*
+.DS_Store
+*.iml
+
+.orig
+.rej
+
+intermediates/*
+generated/*
+
+build/*
+build-reports/*
+

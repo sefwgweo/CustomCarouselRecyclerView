@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- モジュールの下地となるカードView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/margin_m"
+            android:layout_marginBottom="@dimen/margin_s"
+            android:elevation="@dimen/elevation_s"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/list" />
+
+        <!-- カルーセルのRecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:layout_marginTop="@dimen/margin_m"
+            android:layout_marginBottom="@dimen/margin_m"
+            android:clipToPadding="false"
+            android:elevation="@dimen/elevation_m"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/margin_m"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/indicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- インデックス表示用 -->
+        <FrameLayout
+            android:id="@+id/position_container"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/margin_m"
+            android:layout_marginEnd="@dimen/margin_l"
+            android:background="@drawable/bg_rect_black_radius_100_alpha"
+            android:elevation="@dimen/elevation_m"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/list">
+
+            <TextView
+                android:id="@+id/position_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/string_m"
+                tools:text="11/13" />
+        </FrameLayout>
+
+        <!-- instagram風インジケータ -->
+        <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_m"
+            android:elevation="@dimen/elevation_m"
+            app:layout_constraintBottom_toBottomOf="@+id/card_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/list"
+            app:spi_dotSelectedColor="@color/blue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
